@@ -20,7 +20,7 @@ To start working with docker do following
 3. Run following command to spin up the containers for the web server:
 
 ~~~yaml
-`docker-compose up -d --build site`
+docker-compose up -d --build site
 ~~~
 
 

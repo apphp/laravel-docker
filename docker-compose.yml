@@ -1,0 +1,36 @@
+# Docker-composer version
+# ===============
+version: "3.9"
+
+
+# Docker Networks
+# ===============
+networks:
+  myapp-network:
+    driver: bridge
+
+
+# Services
+# ===============
+services:
+
+  # -------------------------------------------------
+  # NGINX service
+  # Access:
+  # - http://localhost:8081/
+  # -------------------------------------------------
+  nginx:
+    build:
+      context: docker
+      dockerfile: nginx/Dockerfile
+    container_name: nginx
+    ports:
+      - "8081:80"
+    volumes:
+      - ./:/myapp
+    #depends_on:
+    #  - php-fpm
+    networks:
+      - myapp-network
+
+

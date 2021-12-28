@@ -28,9 +28,57 @@ services:
       - "8081:80"
     volumes:
       - ./:/myapp
-    #depends_on:
-    #  - php-fpm
+    depends_on:
+      - php-fpm
     networks:
       - myapp-network
 
 
+  # -------------------------------------------------
+  # PHP-FPM service
+  # -------------------------------------------------
+  php-fpm:
+    build:
+      context: docker
+      dockerfile: php-fpm/Dockerfile
+    container_name: php-fpm
+    volumes:
+      - ./:/myapp
+    links:
+      - mysql
+      #- redis
+    environment:
+      APP_URL: http://localhost:8081
+      APP_DEBUG: 1
+      PHP_IDE_CONFIG: serverName=LOCAL_DOCKER
+      DB_PORT: 3306
+      DB_HOST: mysql
+      DB_USER: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_DATABASE}
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      CACHE_DRIVER: redis
+    networks:
+      - myapp-network
+
+
+  # -------------------------------------------------
+  # MySQL service
+  # -------------------------------------------------
+  mysql:
+    image: mysql:8.0.27
+    container_name: mysql
+    restart: always
+    command: --lower_case_table_names=2
+    ports:
+      - "33061:3306"
+    volumes:
+      - ./storage/docker/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - app-network

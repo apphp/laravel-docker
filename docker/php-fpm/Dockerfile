@@ -30,7 +30,7 @@ RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
 # CONFIG files
 # -------------------------------------------------------------
-COPY ./php/conf.d /usr/local/etc/php/conf.d
+#COPY ./php/conf.d /usr/local/etc/php/conf.d
 COPY ./php-fpm/conf.d /usr/local/etc/php/conf.d
 
 # SET working dir as /myapp instead of default working dir

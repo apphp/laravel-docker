@@ -1,6 +1,9 @@
 # CHANGELOG
 
-### 0.0.3 - 28 Dec 2021
+### 0.1.1 - 28 Dec 2021
+* Fixed wrong networks value for mysql
+
+### 0.1.0 - 28 Dec 2021
 * Added php-fpm container
 * Added mysql container
 

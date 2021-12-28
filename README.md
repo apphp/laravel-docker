@@ -23,6 +23,12 @@ To start working with docker do following
 docker-compose up --build -d
 ~~~
 
+After building containers you may up them by following command:
+~~~yaml
+docker-compose up -d
+~~~
+
+
 After successful building your website will be accessible via:
 ~~~
 http://localhost:8081

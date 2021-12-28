@@ -1,0 +1,29 @@
+{
+  "name": "apphp/laravel-docker",
+  "type": "project",
+  "description": "Docker Compose workflow that sets up your own network of containers for local Laravel development",
+  "keywords": [
+    "Laravel",
+    "docker",
+    "docker-compose",
+    "docer container"
+  ],
+  "license": "MIT",
+  "homepage": "https://apphp.com",
+  "authors": [
+    {
+      "name": "Samuel Akopyan",
+      "email": "admin@apphp.com",
+      "homepage": "https://apphp.com",
+      "role": "Founder and project lead"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": ">=7.4 || ^8"
+  }
+}

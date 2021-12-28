@@ -3,6 +3,7 @@
 ### 0.1.1 - 28 Dec 2021
 * Fixed wrong networks value for mysql
 * Added .env example file
+* Added composer.json
 
 ### 0.1.0 - 28 Dec 2021
 * Added php-fpm container

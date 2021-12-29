@@ -64,6 +64,34 @@ services:
 
 
   # -------------------------------------------------
+  # PHP-CLI service
+  # -------------------------------------------------
+  php-cli:
+    build:
+      context: docker
+      dockerfile: php-cli/Dockerfile
+    container_name: php-cli
+    tty: true
+    volumes:
+      - ./:/myapp
+    links:
+      - mysql
+      #- redis
+    environment:
+      APP_URL: http://localhost:8081
+      DB_PORT: 3306
+      DB_HOST: mysql
+      DB_USER: ${DB_USERNAME}
+      DB_PASSWORD:  ${DB_PASSWORD}
+      DB_NAME: ${DB_DATABASE}
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      CACHE_DRIVER: redis
+    networks:
+      - myapp-network
+
+
+  # -------------------------------------------------
   # MySQL service
   # -------------------------------------------------
   mysql:

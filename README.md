@@ -56,3 +56,44 @@ If you would like to have persistent data that remains after bringing containers
 volumes:
   - ./storage/docker/mysql:/var/lib/mysql
 ```
+
+
+## Working with PHP-CLI
+
+#### Migrations, Seeders and Import DB
+After successful building and running docker containers you may run migrations and seeders.
+To perform these operations, simply type in your terminal and execute following commands:
+
+```
+docker-compose run --rm php-cli php artisan migrate
+docker-compose run --rm php-cli php artisan db:seed
+```
+
+#### Working with Composer
+To install/remove new package run following commands:
+```
+docker-compose run --rm php-cli composer require predis/predis
+```
+
+Other commands you would like to run:
+```
+docker-compose run --rm php-cli composer --version
+docker-compose run --rm php-cli composer dump-autoload
+docker-compose run --rm php-cli composer test ExampleTest
+```
+
+#### Working with PHP & Artisan
+Example of commands you would like to run:
+```
+docker-compose run --rm php-cli php -v
+docker-compose run --rm php-cli php artisan migrate
+docker-compose run --rm php-cli php artisan db:seed
+docker-compose run --rm php-cli php artisan optimize:clear
+docker-compose run --rm php-cli php artisan schedule:run
+```
+
+#### Working with Git
+```
+docker-compose run --rm php-cli git branch
+docker-compose run --rm php-cli git pull
+ ```

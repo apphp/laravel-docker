@@ -38,6 +38,22 @@ After successful building your website will be accessible via:
 http://localhost:8081
 ~~~
 
+## Schema
+~~~
+   ___________     ___________     ___________     ___________	
+   |         |     |         |     |         |     |         |
+   |  NGINX  | --→ | PHP-FPM |     | PHP-CLI |     |  REDIS  |  
+   |         |	   |         |     |         |     |         |
+   -----------	   -----------     -----------     -----------
+        |               |               |
+        ↓               ↓               ↓           
+   ____________   ______________________________
+   |  Static  |   |                            |
+   | Content  |   |           CODE             |
+   | CSS,JS.. |   |                            |
+   ------------   ------------------------------
+~~~
+
 ## Environment Configuration
 
 Make sure you created following keys in your `.env` file:

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 0.3.0 - 03 Dec 2022
+* Added redis service
+
 ### 0.2.0 - 29 Dec 2021
 * Added placeholder public/index.php
 * Added PHP-CLI service

@@ -27,6 +27,10 @@ After building containers you may up them by following command:
 ~~~yaml
 docker-compose up -d
 ~~~
+or down with 
+~~~yaml
+docker-compose down
+~~~
 
 
 After successful building your website will be accessible via:

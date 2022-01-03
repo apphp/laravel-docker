@@ -1,6 +1,6 @@
 {
   "name": "apphp/laravel-docker",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "project",
   "description": "Docker Compose workflow that sets up your own network of containers for local Laravel development",
   "keywords": [

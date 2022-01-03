@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 0.3.1 - 03 Dec 2022
+* Changes in documentation
+
 ### 0.3.0 - 03 Dec 2022
 * Added redis service
 

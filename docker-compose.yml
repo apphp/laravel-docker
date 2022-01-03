@@ -110,3 +110,15 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
     networks:
       - myapp-network
+
+
+  # -------------------------------------------------
+  # REDIS service
+  # -------------------------------------------------
+  redis:
+    image: redis:6.2.6
+    container_name: redis
+    ports:
+      - "63791:6379"
+    networks:
+      - myapp-network

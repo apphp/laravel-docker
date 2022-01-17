@@ -116,7 +116,7 @@ docker-compose run --rm php-cli php artisan schedule:run
 ```
 docker-compose run --rm php-cli git branch
 docker-compose run --rm php-cli git pull
- ```
+```
 
 #### Working with Redis
 ```
@@ -128,4 +128,11 @@ keys *
 set name John
 get name
 exit
- ```
+```
+
+#### Working with Node & NPM
+```
+docker-compose run --rm node npm run dev
+docker-compose run --rm node npm run watch
+docker-compose run --rm node npm run hot
+```

@@ -122,3 +122,21 @@ services:
       - "63791:6379"
     networks:
       - myapp-network
+
+  # -------------------------------------------------
+  # NPM & NODE service
+  # -------------------------------------------------
+  node:
+    build:
+      context: docker
+      dockerfile: node/Dockerfile
+    container_name: node
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ./:/cywapp
+    tty: true
+    networks:
+      - app-network
+

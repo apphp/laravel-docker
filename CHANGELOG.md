@@ -1,9 +1,12 @@
 # CHANGELOG
 
-### 0.3.1 - 03 Dec 2022
+### 0.4.1 - 16 Jun 2022
+* Added NPM & Node services
+
+### 0.3.1 - 03 Jun 2022
 * Changes in documentation
 
-### 0.3.0 - 03 Dec 2022
+### 0.3.0 - 03 Jun 2022
 * Added redis service
 
 ### 0.2.0 - 29 Dec 2021

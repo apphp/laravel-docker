@@ -1,4 +1,3 @@
-#FROM php:7.4-fpm-alpine
 FROM php:8.0-fpm-alpine
 
 # MAKEFILE
@@ -24,7 +23,6 @@ RUN docker-php-ext-install zip
 # ------------------------------
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN docker-php-ext-enable pdo_mysql
-
 
 # PHP INI file
 # -------------------------------------------------------------

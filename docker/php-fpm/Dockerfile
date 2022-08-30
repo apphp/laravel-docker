@@ -1,4 +1,5 @@
-FROM php:7.4-fpm-alpine
+#FROM php:7.4-fpm-alpine
+FROM php:8.0-fpm-alpine
 
 # MAKEFILE
 # ------------------------------
@@ -24,14 +25,17 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN docker-php-ext-enable pdo_mysql
 
+
 # PHP INI file
 # -------------------------------------------------------------
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
 # CONFIG files
 # -------------------------------------------------------------
-#COPY ./php/conf.d /usr/local/etc/php/conf.d
-COPY ./php-fpm/conf.d /usr/local/etc/php/conf.d
+COPY ./php/conf.d/php.ini /usr/local/etc/php/conf.d/php.ini
+COPY ./php/conf.d/timeouts.ini /usr/local/etc/php/conf.d/timeouts.ini
+COPY ./php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+COPY ./php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # SET working dir as /myapp instead of default working dir
 # -------------------------------------------------------------

@@ -1,4 +1,5 @@
-FROM php:7.4-cli-alpine
+#FROM php:7.4-cli-alpine
+FROM php:8.0-cli-alpine
 
 # MAKEFILE
 # ------------------------------
@@ -38,13 +39,15 @@ RUN php -r "unlink('composer-setup.php');"
 # install composer from composer image - already existing image
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
+
 # PHP INI file
 # -------------------------------------------------------------
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
-## CONFIG files
-## -------------------------------------------------------------
-#COPY ./php/conf.d /usr/local/etc/php/conf.d
+# CONFIG files
+# -------------------------------------------------------------
+COPY ./php/conf.d/php.ini /usr/local/etc/php/conf.d/php.ini
+COPY ./php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # ADD PERMISSIONS FOR USER "app"
 # ------------------------------

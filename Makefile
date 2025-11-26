@@ -11,6 +11,8 @@ YELLOW := \033[1;33m
 RED := \033[33;31m
 DARKCYAN := \033[33;36m
 NC := \033[0m
+docker := $(if $(filter $(UNAME), Linux), docker-compose, docker compose)
+
 
 ## -------------------------------------------------
 
@@ -84,43 +86,43 @@ remove-images: docker-prune-images
 remove-all: docker-prune-all
 
 docker-ps:
-	docker-compose ps
+	$(docker) ps
 
 docker-up: set-docker-up
 
 set-docker-up:
-	docker-compose --profile $(profile) up -d
+	$(docker) --profile $(profile) up -d
 
 docker-rebuild-container:
-	docker-compose  --profile $(profile) up --build -d $(container)
-	docker-compose ps
+	$(docker)  --profile $(profile) up --build -d $(container)
+	$(docker) ps
 
 docker-reset-container:
-	docker-compose rm -s -v $(container)
-	docker-compose up -d $(container)
-	docker-compose ps
+	$(docker) rm -s -v $(container)
+	$(docker) up -d $(container)
+	$(docker) ps
 
 docker-recreate-container:
-	docker-compose --profile $(profile) up --force-recreate -d $(container)
-	docker-compose ps
+	$(docker) --profile $(profile) up --force-recreate -d $(container)
+	$(docker) ps
 
 docker-rebuild:
-	docker-compose --profile $(profile) up --build -d
+	$(docker) --profile $(profile) up --build -d
 
 docker-down:
-	docker-compose down -v --remove-orphans
+	$(docker) down -v --remove-orphans
 
 docker-pull:
-	docker-compose pull
+	$(docker) pull
 
 docker-build-pull:
-	docker-compose build --pull
+	$(docker) build --pull
 
 docker-prune-images:
 	docker image prune -a -f
 
 docker-prune-all:
-	docker-compose down
+	$(docker) down
 	docker rm -f $(docker ps -a -q)
 	docker volume rm $(docker volume ls -q)
 	docker image prune -a -f
@@ -131,7 +133,7 @@ docker-prune-all:
 ## COMPOSER
 ## -------------------------------------------------
 composer-v:
-	docker-compose exec php-cli /bin/bash -c "$(protected_dir) $(composer_version)"
+	$(docker) exec php-cli /bin/bash -c "$(protected_dir) $(composer_version)"
 
 
 

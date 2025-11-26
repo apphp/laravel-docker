@@ -1,7 +1,3 @@
-# Docker-composer version
-# ===============
-version: "3.9"
-
 
 # Docker Networks
 # ===============

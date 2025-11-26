@@ -9,7 +9,7 @@ RUN apk add --no-cache make
 # XDEBUG with all dependencies
 # ------------------------------
 # install xdebug (requires make utillity !!!)
-RUN apk add --no-cache autoconf g++ \
+RUN apk add --no-cache autoconf g++ linux-headers \
     && pecl install xdebug \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable xdebug

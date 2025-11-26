@@ -23,7 +23,7 @@ help: app-help
 all-commands: app-hello info-docker
 
 check-you-sure:
-	@echo -n "Are you sure? [y/N] " && read ans && [ $${ans:-N} = y ]
+	@echo -n "Are you sure? [Y/n] " && read ans && [ $${ans:-N} = Y ]
 
 app-hello:
 	@echo ""

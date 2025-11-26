@@ -12,7 +12,10 @@ RED := \033[33;31m
 DARKCYAN := \033[33;36m
 NC := \033[0m
 docker := $(if $(filter $(UNAME), Linux), docker-compose, docker compose)
-
+UNAME_M := $(shell uname -m)
+ifeq ($(UNAME_M),arm64)
+  export APP_PLATFORM=linux/amd64
+endif
 
 ## -------------------------------------------------
 
